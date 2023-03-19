@@ -71,13 +71,18 @@
 	let oldest = inventors.sort((a,b) => {
 		let aInventor = a.passed - a.year;
 		let bInventor = b.passed - b.year;
-		
+
 		return aInventor > bInventor ? -1 : 1;
 	})
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+	const categories = document.querySelector('div.mw-category');
+	const links = document.querySelectorAll('a');
 
+	let de = Array.from(links)
+		.map((link) => link.textContent)
+		.filter((name) => name.includes('Boulevard de'));
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
